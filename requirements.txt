@@ -1,1 +1,2 @@
 fastapi[standard]
+pytest==9.0.2
