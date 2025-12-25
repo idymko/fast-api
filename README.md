@@ -34,3 +34,19 @@ By default, our app will be available locally at http://127.0.0.1:8000.
 * Data in Body: Data sent with a POST request is included in the body of the request, allowing for larger amounts of data to be sent compared to GET.
 * No Caching: Responses to POST requests are generally not cached, as they often result in changes to the server state.
 * Use Cases: Common use cases for POST include submitting forms, uploading files, or creating new resources.
+
+## Testing 
+
+
+When running tests with pytest, especially in the context of testing a FastAPI application using TestClient, you do not need to run the Uvicorn server with the command `uvicorn foo:app --reload`. 
+
+* TestClient Usage: The TestClient from FastAPI is designed to simulate requests to your application without needing to run a separate server. It creates an instance of your FastAPI application and allows you to make requests to it directly in your tests.
+
+* Isolation: Running tests with pytest using TestClient allows for isolated testing of your application logic. 
+You can test various endpoints and their responses without the overhead of starting and managing an actual server.
+
+* Speed: Since you're not starting a server, the tests can run much faster. 
+This is particularly useful when you have many tests to run, as it reduces the time needed for setup and teardown.
+
+* Environment: The tests run in a controlled environment where you can easily mock 
+dependencies or set up specific conditions for your tests without affecting the actual running application.
